@@ -7,8 +7,6 @@ var router = express.Router();
 router.route('/')
     .post(function(req,res){
         
-console.log('car-post / owner:' + req.body.owner + ' year:' + req.body.year );
-
         var car = new carModel();
         car.owner = req.body.owner;
         car.year = req.body.year;

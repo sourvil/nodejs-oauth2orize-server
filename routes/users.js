@@ -1,9 +1,34 @@
-var express = require('express');
+var mongoose = require("mongoose");
+var express = require("express");
+
+var User = mongoose.model('User');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+// Create endpoint /api/users for POST
+router.route('/')
+    .post(function(req,res){
+
+        var user = new User({
+          username: req.body.username,
+          password: req.body.password
+        });
+
+        user.save(function(err) {
+          if (err)
+            return res.send(err);
+
+          res.json({ message: 'New user save!' });
+        })
+    })
+
+     .get(function(req, res){ 
+        User.find(function(err, users) {
+            if (err)
+              return res.send(err);
+
+            res.json(users);
+      });
+    })
+;
 
 module.exports = router;
