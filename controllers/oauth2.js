@@ -68,7 +68,7 @@ server.exchange(oauth2orize.exchange.code(function(client, code, redirectUri, ca
       token.save(function (err) {
         if (err) { return callback(err); }
 
-        callback(null, token);
+        callback(null, token.value);
       });
     });
   });
