@@ -1,11 +1,15 @@
-{
-  "name": "nodejs-oauth2orize-server",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
-  "dependencies": {
+NodeJS Oauth2 Authentication/Authorization Server Application
+
+
+MongoDB Collections
+    Clients
+    Codes
+    Tokens
+    Users
+    Sessions
+    Cars (for client-side test operations)
+
+Used Packages
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.15.1",
     "connect-mongo": "^1.3.2",
@@ -22,6 +26,4 @@
     "passport": "^0.3.2",
     "passport-http": "^0.3.0",
     "passport-http-bearer": "^1.0.1",
-    "serve-favicon": "~2.3.0"
-  }
-}
+    "serve-favicon": "~2.3.0" 
