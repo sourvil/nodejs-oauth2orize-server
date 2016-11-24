@@ -4,6 +4,9 @@ var express = require("express");
 var carModel = mongoose.model('Car');
 var router = express.Router();
 
+var authController = require('../controllers/auth');
+router.use('/', authController.isAuthenticated);
+
 router.route('/')
     .post(function(req,res){
         

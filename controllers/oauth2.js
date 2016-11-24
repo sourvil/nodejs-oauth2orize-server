@@ -24,8 +24,6 @@ server.deserializeClient(function(id, callback) {
   });
 });
 
-
-
 // Register authorization code grant type
 server.grant(oauth2orize.grant.code(function(client, redirectUri, user, ares, callback) {
   // Create a new authorization code

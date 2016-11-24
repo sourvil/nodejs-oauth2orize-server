@@ -4,6 +4,9 @@ var express = require("express");
 var Client = mongoose.model('Client');
 var router = express.Router();
 
+var authController = require('../controllers/auth');
+router.use('/', authController.isAuthenticated);
+
 // Create endpoint /api/users for POST
 router.route('/')
     .post(function(req,res){
@@ -15,8 +18,7 @@ router.route('/')
             client.name = req.body.name;
             client.id = req.body.id;
             client.secret = req.body.secret;
-            //client.userId = req.user._id;
-            client.userId = "579479067793eb600f2566f7";
+            client.userId = req.user._id;
 
             // Save the client and check for errors
             client.save(function(err) {
@@ -29,8 +31,7 @@ router.route('/')
     })
 
      .get(function(req, res){ 
-        //Client.find({ userId: req.user._id }, function(err, clients) {
-        Client.find({ userId: "579479067793eb600f2566f7" }, function(err, clients) {
+        Client.find({ userId: req.user._id }, function(err, clients) {
             if (err)
             return res.send(err);
 

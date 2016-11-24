@@ -4,6 +4,9 @@ var express = require("express");
 var User = mongoose.model('User');
 var router = express.Router();
 
+var authController = require('../controllers/auth');
+router.use('/', authController.isAuthenticated);
+
 // Create endpoint /api/users for POST
 router.route('/')
     .post(function(req,res){
