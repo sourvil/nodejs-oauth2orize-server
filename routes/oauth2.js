@@ -9,7 +9,7 @@ var oauth2Controller = require('../controllers/oauth2');
 
 // Create endpoint handlers for oauth2 authorize
 router.route('/authorize')
-  .get(authController.isAuthenticated, oauth2Controller.authorization)
+  .get(authController.isAuthenticated, oauth2Controller.authorization)  // check Client app
   .post(authController.isAuthenticated, oauth2Controller.decision);
 
 // Create endpoint handlers for oauth2 token

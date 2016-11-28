@@ -5,7 +5,7 @@ var carModel = mongoose.model('Car');
 var router = express.Router();
 
 var authController = require('../controllers/auth');
-router.use('/', authController.isAuthenticated);
+router.use('/', authController.isBearerAuthenticated);
 
 router.route('/')
     .post(function(req,res){
